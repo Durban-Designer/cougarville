@@ -126,15 +126,17 @@ export default {
   height: 100%;
   width: 100%;
   background-repeat: repeat;
-  margin-top: 80px;
+  padding-top: 100px;
   display: grid;
+  background-color: #888;
   grid-template-columns: repeat(10, 1fr);
   grid-template-rows: repeat(10, 1fr);
   position: fixed;
 }
 
 h1 {
-  color: black;
+  color: #ffe128;
+  text-shadow: 0px 2px 5px black;
   text-align: center;
 }
 
@@ -160,14 +162,16 @@ select option[data-default] {
 }
 
 button {
-  box-shadow: 0px 3px 4px black;
+  box-shadow: 0px 2px 5px black;
   height: 2em;
   line-height: 1.4em;
-  color: black;
+  color: #ffe128;
   width: 90%;
+  background-image:url('../assets/noise2.jpg');
   margin-bottom: 10px;
   margin-left: 5%;
   margin-right: 5%;
+  border: none;
 }
 
 .accountView {
