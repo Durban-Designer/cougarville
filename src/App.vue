@@ -5,16 +5,19 @@
     <transition name="fade">
       <router-view v-on:login="login" v-on:logout="logOut" v-on:register="register" :logged="loggedIn" :user="user"/>
     </transition>
+    <foot :logged="loggedIn" :user="user"></foot>
   </div>
 </div>
 </template>
 
 <script>
 import navbar from './pages/elements/Navbar'
+import Foot from './pages/elements/Foot'
 export default {
   name: 'App',
   components: {
-    'navbar': navbar
+    'navbar': navbar,
+    'foot': Foot
   },
   created () {
     let vue = this

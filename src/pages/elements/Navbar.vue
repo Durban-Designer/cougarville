@@ -4,7 +4,6 @@
     <div class="navbutton" v-on:click="navpaneLogic = !navpaneLogic"></div>
     <div class="navpane" v-if="navpaneLogic">
       <div class="search" v-on:click="navpaneLogic = false; $router.push('/search')" v-if="logged">Search</div>
-      <div class="forum" v-on:click="navpaneLogic = false; $router.push('/forum')" v-if="logged">Forum</div>
       <div class="account" v-on:click="navpaneLogic = false; $router.push('/account')" v-if="logged">Account</div>
       <div class="submit" v-on:click="navpaneLogic = false; $router.push('/submit')" v-if="logged">Submit</div>
       <div class="login" v-on:click="navpaneLogic = false; $router.push('/login')" v-if="!logged">Login</div>
