@@ -1,8 +1,8 @@
 <template>
   <div class="Foot">
     <div class="search" v-on:click="navpaneLogic = false; $router.push('/search')" v-if="logged">Search</div>
-    <div class="account" v-on:click="navpaneLogic = false; $router.push('/account')" v-if="logged">Account</div>
     <div class="submit" v-on:click="navpaneLogic = false; $router.push('/submit')" v-if="logged">Submit</div>
+    <div class="account" v-on:click="navpaneLogic = false; $router.push('/account')" v-if="logged">Account</div>
     <div class="login" v-on:click="navpaneLogic = false; $router.push('/login')" v-if="!logged">Login</div>
     <div class="register" v-on:click="navpaneLogic = false; $router.push('/register')" v-if="!logged">Register</div>
   </div>
@@ -36,61 +36,47 @@ export default {
     grid-template-columns: repeat(3, 1fr);
   }
 
-  h1 {
-    font-family: @font;
-    bottom: 0;
-    z-index: 13;
-    position: absolute;
-    font-weight: 300;
-    font-size: 1em;
-    color: #fff;
-    text-align: center;
-    line-height: 1;
-    right: 0;
-    margin-bottom: 10px;
-    margin-right: 12px;
-    letter-spacing: 1px;
-  }
-  .search {
-    grid-column: 1;
-    width: 100%;
-    font-size: 1.3em;
-    color: #fff;
-    text-align: center;
-    line-height: 60px;
-  }
-
   .login {
     grid-column: 1;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
     text-align: center;
     line-height: 60px;
+    color: #ffe138;
+    font-weight: 400;
   }
+
   .register {
     grid-column: 3;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
     text-align: center;
     line-height: 60px;
+    color: #ffe138;
+    font-weight: 400;
   }
-  .account{
-    grid-column: 3;
+
+  .search, .submit, .account {
+    grid-row: 1;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
+    color: #ffe138;
     text-align: center;
     line-height: 60px;
   }
+
+  .search {
+    grid-column: 1;
+  }
+
   .submit {
     grid-column: 2;
-    width: 100%;
-    font-size: 1.3em;
-    color: #fff;
-    text-align: center;
-    line-height: 60px;
+    border-left: solid 1px #ffe138;
+    border-right: solid 1px #ffe138;
+  }
+
+  .account{
+    grid-column: 3;
   }
 
   @media only screen and (max-width:750px) {

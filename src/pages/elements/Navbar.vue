@@ -32,7 +32,7 @@ export default {
   }
 
   .logo {
-    background-image: url('../../assets/cougarVille.png');
+    background-image: url('../../assets/cougarVille_Gold.svg');
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
