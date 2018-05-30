@@ -241,11 +241,10 @@ export default {
   }
 
   .mapboxgl-marker {
-    background-image: url('../assets/mapbox-icon.png');
+    background-image: url('../assets/cougarVille_Marker.svg');
     background-size: cover;
     width: 50px;
-    height: 50px;
-    border-radius: 50%;
+    height: 134px;
     z-index: 4;
     cursor: pointer;
   }
