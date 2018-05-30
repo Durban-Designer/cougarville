@@ -163,7 +163,7 @@ button {
   box-shadow: 0px 3px 4px black;
   height: 2em;
   line-height: 1.4em;
-  color: #fff;
+  color: black;
   width: 90%;
   margin-bottom: 10px;
   margin-left: 5%;
