@@ -68,7 +68,9 @@ export default {
 }
 </script>
 <style scoped lang="less">
+
   .main {
+    position: absolute;
     width: 100%;
     height: 100%;
     background-color: #888;
@@ -106,27 +108,23 @@ export default {
   .search {
     grid-column-start: 1;
     grid-column-end: 5;
-    grid-row-start: 4;
-    grid-row-end: 5;
+    grid-row: 5;
     height: 30px;
   }
 
   .searchFilter {
     grid-column-start: 1;
     grid-column-end: 3;
-    grid-row-start: 5;
-    grid-row-end: 6;
+    grid-row: 7;
     height: 30px;
     border: 1px solid #000;
     border-radius: 0;
-
   }
 
   .searchButton {
     grid-column-start: 5;
     grid-column-end: 7;
-    grid-row-start: 4;
-    grid-row-end: 5;
+    grid-row: 5;
     height: 30px;
     border: none;
     background-image:url('../assets/noise2.jpg');
