@@ -35,28 +35,13 @@ export default {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
   }
-
-  h1 {
-    font-family: @font;
-    bottom: 0;
-    z-index: 13;
-    position: absolute;
-    font-weight: 300;
-    font-size: 1em;
-    color: #fff;
-    text-align: center;
-    line-height: 1;
-    right: 0;
-    margin-bottom: 10px;
-    margin-right: 12px;
-    letter-spacing: 1px;
-  }
   .search {
     grid-column: 1;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
+    color: #ffe138;
     text-align: center;
+    font-weight: 400;
     line-height: 60px;
   }
 
@@ -64,31 +49,36 @@ export default {
     grid-column: 1;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
     text-align: center;
     line-height: 60px;
+    color: #ffe138;
+    font-weight: 400;
   }
   .register {
     grid-column: 3;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
     text-align: center;
     line-height: 60px;
+    color: #ffe138;
+    font-weight: 400;
   }
   .account{
     grid-column: 3;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
+    color: #ffe138;
     text-align: center;
     line-height: 60px;
+    font-weight: 400;
   }
   .submit {
+    grid-row: 1;
     grid-column: 2;
     width: 100%;
     font-size: 1.3em;
-    color: #fff;
+    color: #ffe138;
+    font-weight: 400;
     text-align: center;
     line-height: 60px;
   }

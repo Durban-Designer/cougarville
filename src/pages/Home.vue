@@ -38,7 +38,7 @@
       </div>
       <div class="addBar" v-on:click="newBar=true">request to add bar</div>
     </div>
-
+    <button class="centerButton" v-on:click="centerMap">Center Map</button>
     <mapbox id="map" :access-token="mapboxToken" :map-options="mapOptions" @map-load="mapLoaded"></mapbox>
   </div>
 </template>
@@ -113,6 +113,7 @@ export default {
         center: [vue.longitude, vue.latitude],
         zoom: 14
       })
+      vue.centerMap()
       vue.clearBars()
       vue.populateBars()
     },
@@ -136,6 +137,25 @@ export default {
         .catch(function (error) {
           console.log(error)
         })
+    },
+    centerMap () {
+      let vue = this
+      navigator.geolocation.getCurrentPosition(locationSuccess, locationFail)
+      function locationSuccess (position) {
+        vue.latitude = position.coords.latitude
+        vue.longitude = position.coords.longitude
+        vue.accuracy = position.coords.accuracy
+        vue.coordinates = [vue.longitude, vue.latitude]
+        vue.map.jumpTo({
+          center: [vue.longitude, vue.latitude],
+          zoom: 14
+        })
+        vue.addOriginMarker()
+      }
+      function locationFail () {
+        alert('It seems we cant find you, please reload the page and try again.')
+        this.locationError = true
+      }
     },
     addOriginMarker () {
       let vue = this
@@ -189,7 +209,7 @@ export default {
     right: 0;
     display: grid;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(8, 120px);
+    grid-template-rows: repeat(20, 55px);
   }
 
   .mapScreen {
@@ -233,7 +253,7 @@ export default {
     height: 100%;
     padding-top: none;
     grid-row-start: 2;
-    grid-row-end: 6;
+    grid-row-end: 13;
     z-index: 0;
     position: absolute;
     top:0;
@@ -241,13 +261,24 @@ export default {
   }
 
   .mapboxgl-marker {
-    background-image: url('../assets/mapbox-icon.png');
+    background-image: url('../assets/cougarVille_Marker.svg');
     background-size: cover;
     width: 50px;
-    height: 50px;
+    height: 70px;
     border-radius: 50%;
     z-index: 4;
     cursor: pointer;
+  }
+
+  .centerButton {
+    position: absolute;
+    z-index: 3;
+    text-align: center;
+    bottom: 40px;
+    padding-left: 40%;
+    left: 0;
+    right: 0;
+    height: 100px;
   }
 
   .mapboxgl-marker svg {
