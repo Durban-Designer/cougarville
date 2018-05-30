@@ -95,6 +95,8 @@ export default {
     font-size: 3em;
     text-align: center;
     width: 100%;
+    color: #ffe128;
+    text-shadow: 0px 2px 5px black;
     grid-column-start: 1;
     grid-column-end: 7;
     grid-row-start: 1;
@@ -111,11 +113,12 @@ export default {
 
   .searchFilter {
     grid-column-start: 1;
-    grid-column-end: 4;
+    grid-column-end: 3;
     grid-row-start: 5;
     grid-row-end: 6;
     height: 30px;
     border: 1px solid #000;
+    border-radius: 0;
 
   }
 
@@ -125,8 +128,11 @@ export default {
     grid-row-start: 4;
     grid-row-end: 5;
     height: 30px;
-    background-color: #666;
     border: none;
+    background-image:url('../assets/noise2.jpg');
+    color: #ffe128;
+    border: 1px solid #ffe128;
+    box-shadow: 0px 2px 5px black;
   }
 
   .barList {
