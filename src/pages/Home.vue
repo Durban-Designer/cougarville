@@ -253,7 +253,7 @@ export default {
     height: 100%;
     padding-top: none;
     grid-row-start: 2;
-    grid-row-end: 13;
+    grid-row-end: 15;
     z-index: 0;
     position: absolute;
     top:0;
@@ -272,13 +272,17 @@ export default {
 
   .centerButton {
     position: absolute;
-    z-index: 3;
     text-align: center;
-    bottom: 40px;
-    padding-left: 40%;
-    left: 0;
-    right: 0;
-    height: 100px;
+    background-image:url('../assets/noise2.jpg');
+    font-size: 1.3em;
+    color: #ffe138;
+    border: none;
+    border-bottom: solid 1px #ffe138;
+    z-index: 3;
+    grid-row: 11;
+    bottom: 57px;
+    width: 100%;
+    height: 57px;
   }
 
   .mapboxgl-marker svg {
