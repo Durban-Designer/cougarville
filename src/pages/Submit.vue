@@ -2,40 +2,35 @@
   <div class="main">
     <div class="submitView">
       <h3 class="heading">Submit a Location</h3>
-      <input type="text" class="name" placeholder="Location Name">
-      <input type="text" class="address" placeholder="Address">
-      <input type="text" class="phone" placeholder="Phone Number">
-      <h5 class="hours sub_Head">Hours</h5>
-      <h5 class="open sub_Head">Open</h5>
-      <h5 class="close sub_Head">Close</h5>
+      <input type="text" class="name bar_input" placeholder="Location Name">
+      <input type="text" class="address bar_input" placeholder="Address">
+      <input type="text" class="phone bar_input" placeholder="Phone Number">
+      <div class="sub_Head_Bar">
+        <h5 class="hours sub_Head">Hours</h5>
+        <h5 class="open sub_Head">Open</h5>
+        <h5 class="close sub_Head">Close</h5>
+      </div>
       <h4 class="day mon">Monday</h4>
-      <div class="mon back_Strip"></div>
-        <input type="time" class="mon_Open" value="00:00">
-        <input type="time" class="mon_Close" value="00:00">
+        <input type="time" class="mon_Open time" value="00:00">
+        <input type="time" class="mon_Close time" value="00:00">
       <h4 class="day tue">Tuesday</h4>
-      <div class="tue back_Strip"></div>
-        <input type="time" class="tue_Open" value="00:00">
-        <input type="time" class="tue_Close" value="00:00">
+        <input type="time" class="tue_Open time" value="00:00">
+        <input type="time" class="tue_Close time" value="00:00">
       <h4 class="day wed">Wednesday</h4>
-      <div class="wed back_Strip"></div>
-        <input type="time" class="wed_Open" value="00:00">
-        <input type="time" class="wed_Close" value="00:00">
+        <input type="time" class="wed_Open time" value="00:00">
+        <input type="time" class="wed_Close time" value="00:00">
       <h4 class="day thu">Thursday</h4>
-      <div class="thu back_Strip"></div>
-        <input type="time" class="thu_Open" value="00:00">
-        <input type="time" class="thu_Close" value="00:00">
+        <input type="time" class="thu_Open time" value="00:00">
+        <input type="time" class="thu_Close time" value="00:00">
       <h4 class="day fri">Friday</h4>
-      <div class="fri back_Strip"></div>
-        <input type="time" class="fri_Open" value="00:00">
-        <input type="time" class="fri_Close" value="00:00">
+        <input type="time" class="fri_Open time" value="00:00">
+        <input type="time" class="fri_Close time" value="00:00">
       <h4 class="day sat">Saturday</h4>
-      <div class="sat back_Strip"></div>
-        <input type="time" class="sat_Open" value="00:00">
-        <input type="time" class="sat_Close" value="00:00">
+        <input type="time" class="sat_Open time" value="00:00">
+        <input type="time" class="sat_Close time" value="00:00">
       <h4 class="day sun">Sunday</h4>
-      <div class="sun back_Strip"></div>
-        <input type="time" class="sun_Open" value="00:00">
-        <input type="time" class="sun_Close" value="00:00">
+        <input type="time" class="sun_Open time" value="00:00">
+        <input type="time" class="sun_Close time" value="00:00">
     </div>
   </div>
 </template>
@@ -64,7 +59,7 @@ h3, h4, h5{
 }
 
 .submitView {
-  padding-top: 80px;
+  padding-top: 124px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-template-rows: repeat(20, 40px);
@@ -86,38 +81,68 @@ h3, h4, h5{
   grid-row-end: 2;
 }
 
-.name {
+input {
+  height: 36px;
+  background-image: url('../assets/noise2.jpg');
+  border: none;
+  color: #ffe128;
+  border-bottom: solid 1px #ffe128;
+  padding-top: 12px;
+  padding-left: 2px;
+}
+
+input.time {
+  margin-top: 4px;
+}
+
+.name, .address, .phone ,{
   grid-column-start: 1;
   grid-column-end: 4;
+  font-family: verdana;
+}
+
+.name::placeholder, .address::placeholder, .phone::placeholder {
+  color: #ffe128;
+  font-family: verdana;
+  font-size: 1.2em
+}
+
+.name {
   grid-row: 3;
-  height: 30px;
 }
 
 .address {
-  grid-column-start: 1;
-  grid-column-end: 4;
   grid-row: 4;
-  height: 30px;
 }
 
 .phone {
-  grid-column-start: 1;
-  grid-column-end: 4;
   grid-row: 5;
-  height: 30px;
 }
 
-.sub_Head {
-  font-size: 1.2em;
+.sub_Head_Bar {
+  grid-row: 7;
+  grid-column-start: 1;
+  grid-column-end: 4;
+  margin-top: 8px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-bottom: solid 1px #ffe128;
+}
+
+.sub_Head, .day{
+  font-size: 1.5em;
   width: 100%;
   color: #ffe128;
-  text-shadow: 0px 2px 5px black;
-  grid-row: 7;
-  text-align: center;
+  text-align: left;
+  grid-row: 1;
 }
 
 .day {
-
+  font-size: 1em;
+  text-align: left;
+  text-shadow: none;
+  margin-top: 10px;
+  border-bottom: solid 1px #ffe128;
 }
 
 .mon, .mon_Open, .mon_Close {
@@ -174,11 +199,6 @@ h3, h4, h5{
 
 .sun {
   grid-column: 1;
-}
-
-.back_Strip {
-  grid-column: 2
-  background-color: green;
 }
 
 </style>
