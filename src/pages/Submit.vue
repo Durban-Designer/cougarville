@@ -38,6 +38,7 @@
       <div class="sunToggle toggle"></div>
         <input v-model="hours.sunday.start" type="time" class="sunOpen openTime time">
         <input v-model="hours.sunday.end" type="time" class="sunClose closeTime time">
+      <button type="button" class="submitButton">Submit Bar</button>
     </div>
   </div>
 </template>
@@ -169,7 +170,7 @@ input.time {
 }
 
 .sub_Head_Bar {
-  grid-row: 7;
+  grid-row: 6;
   grid-column-start: 1;
   grid-column-end: 5;
   margin-top: 8px;
@@ -199,7 +200,8 @@ input.time {
   grid-column: 2;
   background-image: url('../assets/open_Icon.png');
   background-repeat: no-repeat;
-  margin-top: 12px;
+  margin-top: 20px;
+  z-index: 10;
 }
 
 .openTime {
@@ -211,32 +213,45 @@ input.time {
 }
 
 .mon, .monToggle, .monOpen, .monClose,{
-  grid-row: 8;
+  grid-row: 7;
 }
 
 .tue, .tueToggle, .tueOpen, .tueClose{
-  grid-row: 9;
+  grid-row: 8;
 }
 
 .wed, .wedToggle, .wedOpen, .wedClose{
-  grid-row: 10;
+  grid-row: 9;
 }
 
 .thu, .thuToggle, .thuOpen, .thuClose{
-  grid-row: 11;
+  grid-row: 10;
 }
 
 .fri, .friToggle, .friOpen, .friClose{
-  grid-row: 12;
+  grid-row: 11;
 }
 
 .sat, .satToggle, .satOpen, .satClose{
-  grid-row: 13;
+  grid-row: 12;
 }
 
 .sun, .sunToggle, .sunOpen, .sunClose{
-  grid-row: 14;
+  grid-row: 13;
 
+}
+
+.submitButton {
+  grid-column-start: 3;
+  grid-column-end: 5;
+  grid-row: 14;
+  background-image: url('../assets/noise2.jpg');
+  background-repeat: no-repeat;
+  border: 0;
+  border-bottom: solid 1px #ffe128;
+  color: #ffe128;
+  font-size: 1.5em;
+  margin-top: 4px;
 }
 
 </style>
