@@ -2,35 +2,42 @@
   <div class="main">
     <div class="submitView">
       <h3 class="heading">Submit a Location</h3>
-      <input type="text" class="name bar_input" placeholder="Location Name">
-      <input type="text" class="address bar_input" placeholder="Address">
-      <input type="text" class="phone bar_input" placeholder="Phone Number">
+      <input v-model="name" type="text" class="name bar_input" placeholder="Location Name">
+      <input v-model="address" type="text" class="address bar_input" placeholder="Address">
+      <input v-model="phone" type="text" class="phone bar_input" placeholder="Phone Number">
       <div class="sub_Head_Bar">
         <h5 class="hours sub_Head">Hours</h5>
         <h5 class="open sub_Head">Open</h5>
         <h5 class="close sub_Head">Close</h5>
       </div>
       <h4 class="day mon">Monday</h4>
-        <input type="time" class="mon_Open time" value="00:00">
-        <input type="time" class="mon_Close time" value="00:00">
+      <div v-on:click="test = true" class="monToggle toggle"></div>
+        <input v-model="hours.monday.start" type="time" class="monOpen openTime time">
+        <input v-model="hours.monday.end" type="time" class="monClose closeTime time">
       <h4 class="day tue">Tuesday</h4>
-        <input type="time" class="tue_Open time" value="00:00">
-        <input type="time" class="tue_Close time" value="00:00">
+      <div class="tueToggle toggle"></div>
+        <input v-model="hours.tuesday.start" type="time" class="tueOpen openTime time">
+        <input v-model="hours.tuesday.end" type="time" class="tueClose closeTime time">
       <h4 class="day wed">Wednesday</h4>
-        <input type="time" class="wed_Open time" value="00:00">
-        <input type="time" class="wed_Close time" value="00:00">
+      <div class="wedToggle toggle"></div>
+        <input v-model="hours.wednesday.start" type="time" class="wedOpen openTime time">
+        <input v-model="hours.wednesday.end" type="time" class="wedClose closeTime time">
       <h4 class="day thu">Thursday</h4>
-        <input type="time" class="thu_Open time" value="00:00">
-        <input type="time" class="thu_Close time" value="00:00">
+      <div class="thuToggle toggle"></div>
+        <input v-model="hours.thursday.start" type="time" class="thuOpen openTime time">
+        <input v-model="hours.thursday.end" type="time" class="thuClose closeTime time">
       <h4 class="day fri">Friday</h4>
-        <input type="time" class="fri_Open time" value="00:00">
-        <input type="time" class="fri_Close time" value="00:00">
+      <div class="friToggle toggle"></div>
+        <input v-model="hours.friday.start" type="time" class="friOpen openTime time">
+        <input v-model="hours.friday.end" type="time" class="friClose closeTime time">
       <h4 class="day sat">Saturday</h4>
-        <input type="time" class="sat_Open time" value="00:00">
-        <input type="time" class="sat_Close time" value="00:00">
+      <div class="satToggle toggle"></div>
+        <input v-model="hours.saturday.start" type="time" class="satOpen openTime time">
+        <input v-model="hours.saturday.end" type="time" class="satClose closeTime time">
       <h4 class="day sun">Sunday</h4>
-        <input type="time" class="sun_Open time" value="00:00">
-        <input type="time" class="sun_Close time" value="00:00">
+      <div class="sunToggle toggle"></div>
+        <input v-model="hours.sunday.start" type="time" class="sunOpen openTime time">
+        <input v-model="hours.sunday.end" type="time" class="sunClose closeTime time">
     </div>
   </div>
 </template>
@@ -39,7 +46,49 @@
 export default {
   name: 'Submit',
   data () {
-    return {}
+    return {
+      test: true,
+      name: '',
+      address: '',
+      phone: '',
+      hours: {
+        monday: {
+          start: '',
+          end: '',
+          open: true
+        },
+        tuesday: {
+          start: '',
+          end: '',
+          open: true
+        },
+        wednesday: {
+          start: '',
+          end: '',
+          open: true
+        },
+        thursday: {
+          start: '',
+          end: '',
+          open: true
+        },
+        friday: {
+          start: '',
+          end: '',
+          open: true
+        },
+        saturday: {
+          start: '',
+          end: '',
+          open: true
+        },
+        sunday: {
+          start: '',
+          end: '',
+          open: true
+        }
+      }
+    }
   }
 }
 </script>
@@ -61,7 +110,7 @@ h3, h4, h5{
 .submitView {
   padding-top: 124px;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 20px repeat(2, 1fr);
   grid-template-rows: repeat(20, 40px);
   grid-gap: 4px;
   width: 90%;
@@ -76,7 +125,7 @@ h3, h4, h5{
   color: #ffe128;
   text-shadow: 0px 2px 5px black;
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 5;
   grid-row-start: 1;
   grid-row-end: 2;
 }
@@ -97,7 +146,7 @@ input.time {
 
 .name, .address, .phone ,{
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 5;
   font-family: verdana;
 }
 
@@ -122,7 +171,7 @@ input.time {
 .sub_Head_Bar {
   grid-row: 7;
   grid-column-start: 1;
-  grid-column-end: 4;
+  grid-column-end: 5;
   margin-top: 8px;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -138,67 +187,56 @@ input.time {
 }
 
 .day {
-  font-size: 1em;
+  font-size: .8em;
   text-align: left;
   text-shadow: none;
   margin-top: 10px;
   border-bottom: solid 1px #ffe128;
+  grid-column: 1;
 }
 
-.mon, .mon_Open, .mon_Close {
+.toggle {
+  grid-column: 2;
+  background-image: url('../assets/open_Icon.png');
+  background-repeat: no-repeat;
+  margin-top: 12px;
+}
+
+.openTime {
+  grid-column: 3;
+}
+
+.closeTime{
+  grid-column: 4;
+}
+
+.mon, .monToggle, .monOpen, .monClose,{
   grid-row: 8;
 }
 
-.mon {
-  grid-column: 1;
-}
-
-.tue, .tue_Open, .tue_Close{
+.tue, .tueToggle, .tueOpen, .tueClose{
   grid-row: 9;
 }
 
-.tue {
-  grid-column: 1;
-}
-
-.wed, .wed_Open, .wed_Close{
+.wed, .wedToggle, .wedOpen, .wedClose{
   grid-row: 10;
 }
 
-.wed {
-  grid-column: 1;
-}
-
-.thu, .thu_Open, .thu_Close{
+.thu, .thuToggle, .thuOpen, .thuClose{
   grid-row: 11;
 }
 
-.thu {
-  grid-column: 1;
-}
-
-.fri, .fri_Open, .fri_Close{
+.fri, .friToggle, .friOpen, .friClose{
   grid-row: 12;
 }
 
-.fri {
-  grid-column: 1;
-}
-
-.sat, .sat_Open, .sat_Close{
+.sat, .satToggle, .satOpen, .satClose{
   grid-row: 13;
 }
 
-.sat {
-  grid-column: 1;
-}
-
-.sun, .sun_Open, .sun_Close{
+.sun, .sunToggle, .sunOpen, .sunClose{
   grid-row: 14;
-}
 
-.sun {
-  grid-column: 1;
 }
 
 </style>

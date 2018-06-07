@@ -15,73 +15,101 @@ var BarSchema = new mongoose.Schema({
   },
   hours: {
           monday: {
-              open: {
+              start: {
                   type: Number,
                   required: false
               },
-              closed: {
+              end: {
                   type: Number,
                   required: false
               }
+              open: {
+                type: Boolean,
+                required: false
+              }
           },
           tuesday: {
-            open: {
+            start: {
                 type: Number,
                 required: false
             },
-            closed: {
+            end: {
                 type: Number,
                 required: false
+            }
+            open: {
+              type: Boolean,
+              required: false
             }
         },
         wednesday: {
-            open: {
+            start: {
                 type: Number,
                 required: false
             },
-            closed: {
+            end: {
                 type: Number,
                 required: false
+            }
+            open: {
+              type: Boolean,
+              required: false
             }
         },
         thursday: {
-            open: {
+            start: {
                 type: Number,
                 required: false
             },
-            closed: {
+            end: {
                 type: Number,
                 required: false
+            }
+            open: {
+              type: Boolean,
+              required: false
             }
         },
         friday: {
-            open: {
+            start: {
                 type: Number,
                 required: false
             },
-            closed: {
+            end: {
                 type: Number,
                 required: false
+            }
+            open: {
+              type: Boolean,
+              required: false
             }
         },
         saturday: {
-            open: {
+            start: {
                 type: Number,
                 required: false
             },
-            closed: {
+            end: {
                 type: Number,
                 required: false
             }
+            open: {
+              type: Boolean,
+              required: false
+            }
         },
         sunday: {
-            open: {
+            start: {
                 type: Number,
                 required: false
             },
-            closed: {
+            end: {
                 type: Number,
                 required: false
+            }
+            open: {
+              type: Boolean,
+              required: false
             }
         },
       },
