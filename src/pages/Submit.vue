@@ -44,6 +44,8 @@
 </template>
 
 <script>
+import axios from 'axios'
+
 export default {
   name: 'Submit',
   data () {
@@ -89,6 +91,58 @@ export default {
           open: true
         }
       }
+    }
+  },
+  methods: {
+    barSave () {
+      axios.post('https://api.cougarville.net/bars/', {
+        name: this.name,
+        address: this.address,
+        phone: this.phone,
+        hours: {
+          monday: {
+            start: this.start,
+            end: this.end,
+            open: this.open
+          },
+          tuesday: {
+            start: this.start,
+            end: this.end,
+            open: this.open
+          },
+          wednesday: {
+            start: this.start,
+            end: this.end,
+            open: this.open
+          },
+          thursday: {
+            start: this.start,
+            end: this.end,
+            open: this.open
+          },
+          friday: {
+            start: this.start,
+            end: this.end,
+            open: this.open
+          },
+          saturday: {
+            start: this.start,
+            end: this.end,
+            open: this.open
+          },
+          sunday: {
+            start: this.start,
+            end: this.end,
+            open: this.open
+          }
+        }
+      })
+        .then(result => {
+          console.log(result)
+        })
+        .catch(error => {
+          console.log(error)
+        })
     }
   }
 }
@@ -148,13 +202,19 @@ input.time {
 .name, .address, .phone ,{
   grid-column-start: 1;
   grid-column-end: 5;
-  font-family: verdana;
+  box-shadow: 0px 2px 5px black;
+  margin-top: 4px;
+  line-height: 1.4em;
+  color: #ffe128;
+  background-image:url('../assets/noise2.jpg');
+  border: none;
+  border-bottom: solid 1px #ffe128;
 }
 
 .name::placeholder, .address::placeholder, .phone::placeholder {
+  margin-top: 4px;
+  line-height: 1.4em;
   color: #ffe128;
-  font-family: verdana;
-  font-size: 1.2em
 }
 
 .name {
@@ -204,6 +264,10 @@ input.time {
   z-index: 10;
 }
 
+.time {
+  box-shadow: 0px 2px 5px black;
+}
+
 .openTime {
   grid-column: 3;
 }
@@ -245,13 +309,12 @@ input.time {
   grid-column-start: 3;
   grid-column-end: 5;
   grid-row: 14;
-  background-image: url('../assets/noise2.jpg');
-  background-repeat: no-repeat;
-  border: 0;
-  border-bottom: solid 1px #ffe128;
-  color: #ffe128;
-  font-size: 1.5em;
+  box-shadow: 0px 2px 5px black;
   margin-top: 4px;
+  line-height: 1.4em;
+  color: #ffe128;
+  background-image:url('../assets/noise2.jpg');
+  border: none;
 }
 
 </style>
