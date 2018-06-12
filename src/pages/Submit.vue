@@ -11,33 +11,33 @@
         <h5 class="close sub_Head">Close</h5>
       </div>
       <h4 class="day mon">Monday</h4>
-      <div v-on:click="test = true" class="monToggle toggle"></div>
-        <input v-model="hours.monday.start" type="time" class="monOpen openTime time">
-        <input v-model="hours.monday.end" type="time" class="monClose closeTime time">
+      <div v-on:click="hours.monday.open = !hours.monday.open" class="monToggle toggle" v-bind:class="{toggled: hours.monday.open}"></div>
+      <input v-model="hours.monday.start" type="time" class="monOpen openTime time">
+      <input v-model="hours.monday.end" type="time" class="monClose closeTime time">
       <h4 class="day tue">Tuesday</h4>
       <div class="tueToggle toggle"></div>
-        <input v-model="hours.tuesday.start" type="time" class="tueOpen openTime time">
-        <input v-model="hours.tuesday.end" type="time" class="tueClose closeTime time">
+      <input v-model="hours.tuesday.start" type="time" class="tueOpen openTime time">
+      <input v-model="hours.tuesday.end" type="time" class="tueClose closeTime time">
       <h4 class="day wed">Wednesday</h4>
       <div class="wedToggle toggle"></div>
-        <input v-model="hours.wednesday.start" type="time" class="wedOpen openTime time">
-        <input v-model="hours.wednesday.end" type="time" class="wedClose closeTime time">
+      <input v-model="hours.wednesday.start" type="time" class="wedOpen openTime time">
+      <input v-model="hours.wednesday.end" type="time" class="wedClose closeTime time">
       <h4 class="day thu">Thursday</h4>
       <div class="thuToggle toggle"></div>
-        <input v-model="hours.thursday.start" type="time" class="thuOpen openTime time">
-        <input v-model="hours.thursday.end" type="time" class="thuClose closeTime time">
+      <input v-model="hours.thursday.start" type="time" class="thuOpen openTime time">
+      <input v-model="hours.thursday.end" type="time" class="thuClose closeTime time">
       <h4 class="day fri">Friday</h4>
       <div class="friToggle toggle"></div>
-        <input v-model="hours.friday.start" type="time" class="friOpen openTime time">
-        <input v-model="hours.friday.end" type="time" class="friClose closeTime time">
+      <input v-model="hours.friday.start" type="time" class="friOpen openTime time">
+      <input v-model="hours.friday.end" type="time" class="friClose closeTime time">
       <h4 class="day sat">Saturday</h4>
       <div class="satToggle toggle"></div>
-        <input v-model="hours.saturday.start" type="time" class="satOpen openTime time">
-        <input v-model="hours.saturday.end" type="time" class="satClose closeTime time">
+      <input v-model="hours.saturday.start" type="time" class="satOpen openTime time">
+      <input v-model="hours.saturday.end" type="time" class="satClose closeTime time">
       <h4 class="day sun">Sunday</h4>
       <div class="sunToggle toggle"></div>
-        <input v-model="hours.sunday.start" type="time" class="sunOpen openTime time">
-        <input v-model="hours.sunday.end" type="time" class="sunClose closeTime time">
+      <input v-model="hours.sunday.start" type="time" class="sunOpen openTime time">
+      <input v-model="hours.sunday.end" type="time" class="sunClose closeTime time">
       <button type="button" class="submitButton">Submit Bar</button>
     </div>
   </div>
@@ -151,10 +151,14 @@ export default {
 <style scoped lang="less">
 
 .main {
-  position: absolute;
+  position: relative;
   width: 100%;
   height: 100%;
   background-color: #888;
+}
+
+.toggled {
+  background-color: red;
 }
 
 h3, h4, h5{
@@ -261,7 +265,7 @@ input.time {
   background-image: url('../assets/open_Icon.png');
   background-repeat: no-repeat;
   margin-top: 20px;
-  z-index: 10;
+  z-index: 1;
 }
 
 .time {

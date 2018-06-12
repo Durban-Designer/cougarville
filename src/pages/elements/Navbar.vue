@@ -22,7 +22,7 @@ export default {
     top: 0;
     left: 0;
     right: 0;
-    height:55px;
+    height: 55px;
     background-color: #222;
     background-image:url('../../assets/noise2.jpg');
     display: grid;

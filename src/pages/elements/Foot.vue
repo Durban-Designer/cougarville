@@ -34,6 +34,7 @@ export default {
     background-image:url('../../assets/noise2.jpg');
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    z-index: 3;
   }
 
   .login {
@@ -63,6 +64,7 @@ export default {
     color: #ffe138;
     text-align: center;
     line-height: 60px;
+    border-top: solid 1px #ffe138
   }
 
   .search {
